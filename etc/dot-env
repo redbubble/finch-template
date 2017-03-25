@@ -1,3 +1,0 @@
-PORT=8080
-ENV=development
-ROLLBAR_ACCESS_KEY=abcdefg
