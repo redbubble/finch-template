@@ -2,6 +2,7 @@ package com.redbubble.finchtemplate.services.people
 
 import com.redbubble.finchtemplate.fetch.people.PeopleFetcher._
 import com.redbubble.finchtemplate.model.Person
+import com.redbubble.finchtemplate.model.people.PersonId
 import com.redbubble.util.fetch.syntax._
 import com.twitter.util.Future
 

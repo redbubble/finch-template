@@ -1,7 +1,7 @@
 package com.redbubble.finchtemplate.backends.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.services.people.PersonId
+import com.redbubble.finchtemplate.model.people.PersonId
 import com.redbubble.finchtemplate.util.config.Environment.env
 import com.redbubble.finchtemplate.util.http.FinchTemplateJsonApiClient.client
 import com.redbubble.finchtemplate.util.metrics.Metrics._

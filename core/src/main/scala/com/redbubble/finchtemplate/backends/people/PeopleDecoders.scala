@@ -1,7 +1,7 @@
 package com.redbubble.finchtemplate.backends.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.services.people.{BirthYear, HairColour, Name}
+import com.redbubble.finchtemplate.model.people.{BirthYear, HairColour, Name}
 import com.redbubble.util.json.syntax._
 import io.circe.Decoder
 

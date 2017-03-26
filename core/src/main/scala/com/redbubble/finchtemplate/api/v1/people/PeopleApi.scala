@@ -1,7 +1,9 @@
 package com.redbubble.finchtemplate.api.v1.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.model.people.{BirthYear, HairColour, Name}
+import com.redbubble.finchtemplate.model.people.PersonId
+import com.redbubble.finchtemplate.services.people.PeopleService
+import com.redbubble.util.http.Errors.notFoundError
 import io.finch.{Endpoint, _}
 
 object PeopleApi {
@@ -9,11 +11,14 @@ object PeopleApi {
 
   def people: Endpoint[Seq[Person]] =
     get("v1" :: "pepople") {
-      Ok(Seq(Person(Name("Bobba"), BirthYear("BY17"), HairColour("Helmet"))))
+      PeopleService.allPeople().map(Ok)
     }
 
   def person: Endpoint[Person] =
     get("v1" :: "people" :: int("id")) { (id: Int) =>
-      Ok(Person(Name("Bobba"), BirthYear("BY17"), HairColour("Helmet")))
+      PeopleService.personDetails(PersonId(id)).map {
+        case Some(person) => Ok(person)
+        case None => NotFound(notFoundError(s"No person for ID $id"))
+      }
     }
 }

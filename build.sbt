@@ -184,6 +184,19 @@ lazy val coreSettings = buildSettings ++ baseSettings ++ Seq(
 lazy val perfSettings = buildSettings ++ baseSettings ++ Defaults.itSettings ++ Seq(
   libraryDependencies ++= perfDependencies
 )
+lazy val finchTemplateSettings = buildSettings ++ baseSettings ++ Seq(
+  libraryDependencies ++= coreDependencies,
+  mainClass in Compile := Some("com.redbubble.finchtemplate.App"),
+  aggregate in run := false,
+  aggregate in reStart := false,
+  coverageMinimum := 25.0,
+  coverageFailOnMinimum := true,
+  coverageExcludedPackages := "com\\.redbubble\\.util\\.spec\\.*",
+  newrelicAppName := "Finch Template",
+  newrelicVersion := nrVersion,
+  newrelicCustomTracing := true,
+  newrelicIncludeApi := true
+)
 
 lazy val common = (project in file("common"))
     .settings(commonSettings)
@@ -201,6 +214,7 @@ lazy val perf = (project in file("perf"))
     .enablePlugins(GatlingPlugin)
 lazy val api = project.in(file("."))
     .settings(name := "finch-template", moduleName := "finch-template")
+    .settings(finchTemplateSettings)
     .aggregate(common, hawk, core, perf)
     .dependsOn(common, hawk, core, perf)
     .enablePlugins(JavaAppPackaging)

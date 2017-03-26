@@ -1,7 +1,7 @@
 package com.redbubble.finchtemplate.fetch.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.services.people.PersonId
+import com.redbubble.finchtemplate.model.people.PersonId
 import fetch.Fetch
 
 object PeopleFetcher {
