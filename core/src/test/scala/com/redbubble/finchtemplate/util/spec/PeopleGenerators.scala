@@ -1,7 +1,7 @@
 package com.redbubble.finchtemplate.util.spec
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.services.people.{BirthYear, HairColour, Name}
+import com.redbubble.finchtemplate.model.people.{BirthYear, HairColour, Name}
 import com.redbubble.util.spec.gen.GenHelpers
 import org.scalacheck.Gen
 
