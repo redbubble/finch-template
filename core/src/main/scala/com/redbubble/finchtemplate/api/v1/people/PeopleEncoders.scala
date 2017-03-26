@@ -19,7 +19,7 @@ trait PeopleEncoders {
   private def personJson(p: Person) =
     Json.obj(
       "name" -> Json.fromString(p.name),
-      "brth_year" -> Json.fromString(p.birthYear),
+      "birth_year" -> Json.fromString(p.birthYear),
       "hair_colour" -> Json.fromString(p.hairColour)
     )
 }
