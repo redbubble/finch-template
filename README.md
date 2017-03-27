@@ -29,11 +29,43 @@ With more are in the [cookbook](http://finagle.github.io/finch/best-practices.ht
 
 # API
 
-You can access the API as follows:
+You can access the API as follows.
+
+## People
 
 ```
-$ ./sbt run
-$ curl
+$ curl -i "http://localhost:8080/v1/people"
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Mon, 27 Mar 2017 10:19:46 GMT
+Content-Length: 692
+
+{"data":{"people":[{"name":"Luke Skywalker","birth_year":"19BBY","hair_colour":"blond"},{"name":"C-3PO","birth_year":"112BBY","hair_colour":"n/a"},{"name":"R2-D2","birth_year":"33BBY","hair_colour":"n/a"},{"name":"Darth Vader","birth_year":"41.9BBY","hair_colour":"none"},{"name":"Leia Organa","birth_year":"19BBY","hair_colour":"brown"},{"name":"Owen Lars","birth_year":"52BBY","hair_colour":"brown, grey"},{"name":"Beru Whitesun lars","birth_year":"47BBY","hair_colour":"brown"},{"name":"R5-D4","birth_year":"unknown","hair_colour":"n/a"},{"name":"Biggs Darklighter","birth_year":"24BBY","hair_colour":"black"},{"name":"Obi-Wan Kenobi","birth_year":"57BBY","hair_colour":"auburn, white"}]}}
+```
+
+## Person
+
+```
+$ curl -i "http://localhost:8080/v1/people/1"
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Mon, 27 Mar 2017 10:20:40 GMT
+Content-Length: 88
+
+{"data":{"person":{"name":"Luke Skywalker","birth_year":"19BBY","hair_colour":"blond"}}}
+```
+
+## Healthcheck
+
+```
+$ curl -i "http://localhost:8080/v1/health"
+HTTP/1.1 200 OK
+Content-Length: 2
+Content-Language: en
+Content-Type: text/plain
+Date: Mon, 27 Mar 2017 09:46:17 GMT
+
+OK
 ```
 
 # Setup

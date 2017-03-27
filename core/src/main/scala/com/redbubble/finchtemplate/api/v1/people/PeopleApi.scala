@@ -10,12 +10,12 @@ object PeopleApi {
   val peopleApi = people :+: person
 
   def people: Endpoint[Seq[Person]] =
-    get("v1" :: "pepople") {
+    get("people") {
       PeopleService.allPeople().map(Ok)
     }
 
   def person: Endpoint[Person] =
-    get("v1" :: "people" :: int("id")) { (id: Int) =>
+    get("people" :: int("id")) { (id: Int) =>
       PeopleService.personDetails(PersonId(id)).map {
         case Some(person) => Ok(person)
         case None => NotFound(notFoundError(s"No person for ID $id"))

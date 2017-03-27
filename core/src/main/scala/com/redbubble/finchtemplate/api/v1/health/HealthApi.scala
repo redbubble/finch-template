@@ -8,7 +8,8 @@ import io.finch.{Endpoint, _}
 object HealthApi {
   val healthApi = health
 
-  def health: Endpoint[Response] = get("health") {
-    textResponse(Status.Ok, Buf.Utf8("OK"))
-  }
+  def health: Endpoint[Response] =
+    get("health") {
+      textResponse(Status.Ok, Buf.Utf8("OK"))
+    }
 }
