@@ -1,10 +1,8 @@
 # Finch HTTP Service Template
 
-This is a template for a simple, stateless HTTP API built on top of Finch. It aims to provide a simple, consistent, beginner- to intermediate-level stack, aimed at getting a small HTTP-based service up & running quickly with some things we care about in a production system.
+This is a template for a simple, stateless HTTP API built on top of Finch. It aims to provide a simple, consistent, beginner- to intermediate-level stack, aimed at getting a small HTTP-based service up & running quickly with some things we care about in a production system, including:
 
-It aims to provide a simple, consistent, beginner- to intermediate-level stack, aimed at getting a small HTTP-based service up & running quickly with some things we care about in a production system, including:
-
-* An API exposed over HTTP;
+* A HTTP API;
 * Authentication;
 * Caching;
 * System monitoring;
@@ -18,7 +16,7 @@ This template uses other open source code from Redbubble:
 
 * [finagle-hawk](https://github.com/redbubble/finagle-hawk) - HTTP Holder-Of-Key Authentication Scheme for Finagle.
 
-Redbubble also makes available a [GraphQL version of this template](https://github.com/redbubble/graphql-template) (which is more complete and contains a Docker image)
+Redbubble also makes available a [GraphQL version of this template](https://github.com/redbubble/graphql-template) (which is more complete and contains a Docker image).
 
 If you're after a basic Finch template, several are available:
 
