@@ -138,7 +138,7 @@ Deploying to production will restart the app servers (Heroku Dynos) automaticall
 manually you can:
 
 ```
-$ heroku restart -a rb-ios-api
+$ heroku restart -a rb-graphql-template
 ```
 
 # Testing
