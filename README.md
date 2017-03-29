@@ -16,7 +16,7 @@ This template uses other open source code from Redbubble:
 
 * [finagle-hawk](https://github.com/redbubble/finagle-hawk) - HTTP Holder-Of-Key Authentication Scheme for Finagle.
 
-Redbubble also makes available a [GraphQL version of this template](https://github.com/redbubble/graphql-template) (which is more complete and contains a Docker image).
+Redbubble also makes available a [GraphQL version of this template](https://github.com/redbubble/rb-graphql-template) (which is more complete and contains a Docker image).
 
 If you're after a basic Finch template, several are available:
 
