@@ -20,7 +20,7 @@ lazy val finchVersion = "0.15.1"
 lazy val catBirdVersion = "0.15.0"
 lazy val featherbedVersion = "0.3.1"
 lazy val logbackVersion = "1.2.3"
-lazy val specsVersion = "3.9.4"
+lazy val specsVersion = "3.9.3"
 lazy val jodaTimeVersion = "2.9.9"
 lazy val jodaConvertVersion = "1.8.2"
 lazy val scalaCacheVersion = "0.9.4"
@@ -122,15 +122,6 @@ lazy val commonDependencies = Seq(
   rollbar
 )
 
-lazy val hawkDependencies = Seq(
-  finagleHttp,
-  finagleStats,
-  cats,
-  jodaTime,
-  jodaConvert,
-  mouse
-)
-
 lazy val coreDependencies = Seq(
   twitterServer,
   finagleHttp,
@@ -172,9 +163,6 @@ lazy val baseSettings = Seq(
 lazy val commonSettings = buildSettings ++ baseSettings ++ Seq(
   libraryDependencies ++= (commonDependencies ++ testDependencies)
 )
-lazy val hawkSettings = buildSettings ++ baseSettings ++ Seq(
-  libraryDependencies ++= hawkDependencies
-)
 lazy val coreSettings = buildSettings ++ baseSettings ++ Seq(
   libraryDependencies ++= coreDependencies
 )
@@ -197,13 +185,9 @@ lazy val finchTemplateSettings = buildSettings ++ baseSettings ++ Seq(
 
 lazy val common = (project in file("common"))
     .settings(commonSettings)
-lazy val hawk = (project in file("hawk"))
-    .settings(hawkSettings)
-    .dependsOn(common % "test->test;compile->compile")
 lazy val core = (project in file("core"))
     .settings(coreSettings)
     .dependsOn(common % "test->test;compile->compile")
-    .dependsOn(hawk % "test->test;compile->compile")
 lazy val perf = (project in file("perf"))
     .settings(perfSettings)
     .configs(IntegrationTest)
@@ -212,8 +196,8 @@ lazy val perf = (project in file("perf"))
 lazy val api = project.in(file("."))
     .settings(name := "finch-template", moduleName := "finch-template")
     .settings(finchTemplateSettings)
-    .aggregate(common, hawk, core, perf)
-    .dependsOn(common, hawk, core, perf)
+    .aggregate(common, core, perf)
+    .dependsOn(common, core, perf)
     .enablePlugins(JavaAppPackaging)
     .enablePlugins(NewRelic)
 
