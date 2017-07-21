@@ -5,6 +5,7 @@ import java.util.concurrent.{Executor, TimeUnit}
 import com.redbubble.util.async.syntax._
 import com.redbubble.util.cache.CacheOps.sanitiseCacheName
 import com.redbubble.util.metrics.StatsReceiver
+import com.twitter.util.Duration.fromSeconds
 import com.twitter.util.{Duration, Future}
 
 import scala.concurrent.ExecutionContext.fromExecutor
@@ -39,6 +40,8 @@ sealed trait MemoryCache {
 }
 
 object MemoryCache {
+  final val DefaultWaitDuration: Duration = fromSeconds(5)
+
   private val flags = Flags(readsEnabled = true, writesEnabled = true)
 
   def newCache(name: String, maxSize: Long, ttl: Duration)(implicit ex: Executor, statsReceiver: StatsReceiver): MemoryCache =

@@ -1,5 +1,6 @@
 package com.redbubble.util.fetch
 
+import com.redbubble.util.cache.MemoryCache.DefaultWaitDuration
 import com.redbubble.util.cache.{CacheKey, MemoryCache}
 import com.redbubble.util.fetch.TwitterFutureFetchMonadError.twitterFutureFetchMonadError
 import com.twitter.util.{Await, Future, FuturePool}
@@ -8,7 +9,7 @@ import fetch._
 final case class FetchedObjectCache(underlying: MemoryCache) extends DataSourceCache {
   override def get[A](k: DataSourceIdentity) = {
     val valueFuture = underlying.get[A](CacheKey(k.toString))
-    Await.result(valueFuture)
+    Await.result(valueFuture, DefaultWaitDuration)
   }
 
   override def update[A](k: DataSourceIdentity, v: A) = {

@@ -6,6 +6,7 @@ import com.redbubble.util.http.ServiceInteraction.interaction
 import com.redbubble.util.spec.SpecHelper
 import com.twitter.finagle.http.Response
 import com.twitter.finagle.http.Status._
+import com.twitter.util.Duration.fromMilliseconds
 import com.twitter.util.{Await, Future}
 import org.specs2.mutable.Specification
 
@@ -23,12 +24,12 @@ final class BackendOpsSpec extends Specification with SpecHelper with BackendOps
   "Responses without errors" >> {
     "Sequences" >> {
       "are passed through" >> {
-        Await.result(handle404AsEmpty(requestSequence200)(seqEmpty)) must beRight(Seq(1))
+        Await.result(handle404AsEmpty(requestSequence200)(seqEmpty), fromMilliseconds(10)) must beRight(Seq(1))
       }
     }
     "Options" >> {
       "are passed through" >> {
-        Await.result(handle404AsEmpty[Option[Int]](requestOption200)(optionEmpty)) must beRight(Some(1))
+        Await.result(handle404AsEmpty[Option[Int]](requestOption200)(optionEmpty), fromMilliseconds(10)) must beRight(Some(1))
       }
     }
   }
@@ -36,12 +37,12 @@ final class BackendOpsSpec extends Specification with SpecHelper with BackendOps
   "Responses with non-404 downstream errors" >> {
     "Sequences" >> {
       "are passed through" >> {
-        Await.result(handle404AsEmpty(request500)(seqEmpty)) must beLeft
+        Await.result(handle404AsEmpty(request500)(seqEmpty), fromMilliseconds(10)) must beLeft
       }
     }
     "Options" >> {
       "are passed through" >> {
-        Await.result(handle404AsEmpty(request500)(optionEmpty)) must beLeft
+        Await.result(handle404AsEmpty(request500)(optionEmpty), fromMilliseconds(10)) must beLeft
       }
     }
   }
@@ -49,12 +50,12 @@ final class BackendOpsSpec extends Specification with SpecHelper with BackendOps
   "Responses with 404 downstream errors" >> {
     "Sequences" >> {
       "are turned into empty sequences" >> {
-        Await.result(handle404AsEmpty(request404)(seqEmpty)) must beRight(Seq.empty)
+        Await.result(handle404AsEmpty(request404)(seqEmpty), fromMilliseconds(10)) must beRight(Seq.empty)
       }
     }
     "Options" >> {
       "are turned into None" >> {
-        Await.result(handle404AsEmpty(request404)(optionEmpty)) must beRight(None)
+        Await.result(handle404AsEmpty(request404)(optionEmpty), fromMilliseconds(10)) must beRight(None)
       }
     }
   }
