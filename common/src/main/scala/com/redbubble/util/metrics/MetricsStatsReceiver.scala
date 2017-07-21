@@ -24,7 +24,6 @@
 package com.redbubble.util.metrics
 
 import com.codahale.metrics.{Gauge => DwGauge, Metric => DwMetric, MetricFilter => DwMetricFilter, MetricRegistry => DwMetricsRegistry}
-import com.redbubble.util.http.Errors
 import com.redbubble.util.http.Errors.error
 import com.redbubble.util.metrics.MetricsStatsReceiver._
 import com.twitter.finagle.stats.{Counter => FinagleCounter, Gauge => FinagleGauge, Stat => FinagleStat, StatsReceiver => FinagleStatsReceiver}
@@ -35,7 +34,7 @@ import scala.collection.JavaConverters._
   * A `com.twitter.finagle.stats.StatsReceiver` instance that bridges Finagle Stats' metrics to Dropwizard Metrics.
   *
   * This classes essentially configures itself as a `StatsReceiver`, and sends all metrics to Dropwizard Metrics,
-  * which in turn are sent to New Relic (using `com.redbubble.gql.util.metrics.newrelic.`).
+  * which in turn are sent to New Relic (using `com.redbubble.ios.metrics.newrelic.`).
   *
   * See `com.twitter.finagle.stats.DefaultStatsReceiver` for details on how this is done at runtime (basically, it
   * loads classes defined in `resources/META-INF/services`).
@@ -75,7 +74,7 @@ final class MetricsStatsReceiver extends FinagleStatsReceiver {
     // have no way, here, of knowing).
     override def remove() = {
       metrics.remove(formatMetricNames(names))
-      // TODO Fix this to remove up to MaxDedupes.
+      // TODO TJA Fix this to remove up to MaxDedupes.
       metrics.remove(formatMetricNames(names :+ deduplicatedName))
       ()
     }
