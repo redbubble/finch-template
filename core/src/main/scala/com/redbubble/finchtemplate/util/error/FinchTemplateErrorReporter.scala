@@ -1,14 +1,13 @@
 package com.redbubble.finchtemplate.util.error
 
+import com.redbubble.finchtemplate.util.async.futurePool
 import com.redbubble.finchtemplate.util.config.Config.rollbarAccessKey
 import com.redbubble.finchtemplate.util.config.Environment.env
 import com.redbubble.finchtemplate.util.config.{Environment, Production}
-import com.redbubble.finchtemplate.util.async.futurePool
 import com.redbubble.util.config.Environment
 import com.redbubble.util.error._
 import com.redbubble.util.http.DownstreamError
-import com.twitter.finagle.{ChannelClosedException, IndividualRequestTimeoutException}
-import com.twitter.finagle.http.Status.InternalServerError
+import com.twitter.finagle.{ChannelClosedException, IndividualRequestTimeoutException, ServiceTimeoutException}
 import com.twitter.util.FuturePool
 
 private final class FinchTemplateErrorReporter(
@@ -26,13 +25,13 @@ private final class FinchTemplateErrorReporter(
   private def reportLevel(t: Throwable): Option[ErrorLevel] = t match {
     // An example of not logging a 404 from a downstream service.
     case e @ DownstreamError(_, i) if e.getMessage.contains("Resource Not Found") && i.requestUrl.startsWith(env.peopleApiUrl.toString) =>
-      Some(Debug)
+      None
+    // We don't care about acquisition timeouts to downstream services, as these are usually intermittent.
+    case _: ServiceTimeoutException => None
     // We don't care about individual request timeouts to downstream services, as these are usually intermittent.
-    case _: IndividualRequestTimeoutException =>
-      Some(Debug)
+    case _: IndividualRequestTimeoutException => None
     // We don't care about downstream services closing connections, as these are usually intermittent.
-    case _: ChannelClosedException =>
-      Some(Debug)
+    case _: ChannelClosedException => None
     case _ => Some(Error)
   }
 

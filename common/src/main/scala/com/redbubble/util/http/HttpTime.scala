@@ -1,21 +1,30 @@
 package com.redbubble.util.http
 
-import java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME
-import java.time.{Instant, ZoneOffset}
+import java.time.format.DateTimeFormatter
+import java.time.{Instant, ZoneId}
+import java.util.Locale
 
 object HttpTime {
-  private val formatter = RFC_1123_DATE_TIME.withZone(ZoneOffset.UTC)
+  private val formatter = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm:ss zzz")
+      .withLocale(Locale.ENGLISH)
+      .withZone(ZoneId.of("GMT"))
 
-  //noinspection ScalaStyle
-  @volatile private var last: (Long, String) = (0L, "")
+  private class Last(var millis: Long, var header: String)
+
+  private val last = new ThreadLocal[Last] {
+    override def initialValue: Last = new Last(0, "")
+  }
 
   def currentTime(): String = {
+    val local = last.get()
     val time = System.currentTimeMillis()
-    if (time - last._1 > 1000) {
-      last = time -> formatter.format(Instant.ofEpochMilli(time))
-      last._2
+
+    if (time - local.millis > 1000) {
+      local.millis = time
+      local.header = formatter.format(Instant.ofEpochMilli(time))
+      local.header
     } else {
-      last._2
+      local.header
     }
   }
 }
