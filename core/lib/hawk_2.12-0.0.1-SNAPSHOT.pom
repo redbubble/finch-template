@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>co.apraise</groupId>
+    <groupId>com.redbubble</groupId>
     <artifactId>hawk_2.12</artifactId>
     <packaging>jar</packaging>
     <description>hawk</description>
     <version>0.0.1-SNAPSHOT</version>
     <name>hawk</name>
     <organization>
-        <name>co.apraise</name>
+        <name>com.redbubble</name>
     </organization>
     <dependencies>
         <dependency>
@@ -17,31 +17,31 @@
             <version>2.12.2</version>
         </dependency>
         <dependency>
-            <groupId>co.apraise</groupId>
-            <artifactId>util_2.12</artifactId>
+            <groupId>com.redbubble</groupId>
+            <artifactId>common_2.12</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.specs2</groupId>
             <artifactId>specs2-core_2.12</artifactId>
-            <version>3.8.9</version>
+            <version>3.9.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.specs2</groupId>
             <artifactId>specs2-scalacheck_2.12</artifactId>
-            <version>3.8.9</version>
+            <version>3.9.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>finagle-http_2.12</artifactId>
-            <version>6.44.0</version>
+            <version>6.45.0</version>
         </dependency>
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>finagle-stats_2.12</artifactId>
-            <version>6.44.0</version>
+            <version>6.45.0</version>
         </dependency>
         <dependency>
             <groupId>org.typelevel</groupId>
@@ -56,12 +56,12 @@
         <dependency>
             <groupId>org.joda</groupId>
             <artifactId>joda-convert</artifactId>
-            <version>1.8.1</version>
+            <version>1.8.2</version>
         </dependency>
         <dependency>
             <groupId>com.github.benhutchison</groupId>
             <artifactId>mouse_2.12</artifactId>
-            <version>0.7</version>
+            <version>0.9</version>
         </dependency>
     </dependencies>
     <repositories>
