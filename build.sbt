@@ -7,7 +7,7 @@ import sbt.Keys._
 lazy val buildSettings = Seq(
   organization := "com.redbubble",
   version := "0.0.1-SNAPSHOT",
-  scalaVersion := "2.12.2"
+  scalaVersion := "2.12.3"
 )
 
 lazy val circeVersion = "0.8.0"
