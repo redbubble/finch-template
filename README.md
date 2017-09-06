@@ -1,6 +1,6 @@
-# Finch HTTP Service Template
-
 [![Build status](https://img.shields.io/travis/redbubble/finch-template/master.svg)](https://travis-ci.org/redbubble/finch-template)
+
+# Finch HTTP Service Template
 
 This is a template for a simple, stateless HTTP API built on top of Finch. It aims to provide a simple, consistent, beginner- to intermediate-level stack, aimed at getting a small HTTP-based service up & running quickly with some things we care about in a production system, including:
 
