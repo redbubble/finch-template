@@ -16,6 +16,8 @@ This is a template for a simple, stateless HTTP API built on top of Finch. It ai
 
 This template uses other open source code from Redbubble:
 
+* [rb-scala-utils](https://github.com/redbubble/rb-scala-utils) - Miscellaneous utilities (common code) for building
+  Scala-based services, using Finch (on which this project depends).
 * [finagle-hawk](https://github.com/redbubble/finagle-hawk) - HTTP Holder-Of-Key Authentication Scheme for Finagle.
 
 Redbubble also makes available a [GraphQL version of this template](https://github.com/redbubble/rb-graphql-template) (which is more complete and contains a Docker image).
