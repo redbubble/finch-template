@@ -18,11 +18,6 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
-core/target
-graphql/target
-common/target
-hawk/target
-perf/target
 
 # Scala-IDE specific
 .scala_dependencies
