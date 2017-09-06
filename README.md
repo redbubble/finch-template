@@ -118,7 +118,7 @@ $ ./sbt run
 You can also use [Revolver](https://github.com/spray/sbt-revolver) for restarts when code changes (recommended!):
 
 ```
-$ ./sbt ~re-start
+$ ./sbt ~reStart
 ```
 
 To run using the Heroku tools (requires deployment setup as above), i.e. like it's run in production:
@@ -142,7 +142,7 @@ Deploying to production will restart the app servers (Heroku Dynos) automaticall
 manually you can:
 
 ```
-$ heroku restart -a rb-graphql-template
+$ heroku restart -a finch-template
 ```
 
 # Testing
@@ -189,10 +189,10 @@ Note. If you run tests against a local server you will need to start it first.
 
 # Deployment
 
-Deployment is to Heroku, which can be done using:
+This repository is set up for deployment to Heroku, which can be done using:
 
 ```
-$ ./deploy
+$ git push heroku master
 ```
 
 Before you do though, there is a one-off setup for deployment.
