@@ -7,8 +7,7 @@ import com.redbubble.finchtemplate.util.config.Config._
 import com.redbubble.finchtemplate.util.config.{Development, Environment, Test}
 import com.redbubble.finchtemplate.util.metrics.Metrics._
 import com.redbubble.hawk.HawkAuthenticateRequestFilter
-import com.redbubble.util.http.ExceptionFilter
-import com.redbubble.util.http.filter.{HttpBasicAuthFilter, RequestLoggingFilter, RoutingMetricsFilter}
+import com.redbubble.util.http.filter.{ExceptionFilter, HttpBasicAuthFilter, RequestLoggingFilter, RoutingMetricsFilter}
 import com.twitter.finagle.Service
 import com.twitter.finagle.http.{Request, Response}
 import io.finch.Application

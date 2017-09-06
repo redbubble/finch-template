@@ -1,8 +1,7 @@
 package com.redbubble.finchtemplate.backends.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.util.spec.FinchTemplateGenerators
-import com.redbubble.util.spec.SpecHelper
+import com.redbubble.finchtemplate.util.spec.{FinchTemplateGenerators, SpecHelper}
 import org.scalacheck.Prop._
 import org.scalacheck.Properties
 import org.specs2.mutable.Specification

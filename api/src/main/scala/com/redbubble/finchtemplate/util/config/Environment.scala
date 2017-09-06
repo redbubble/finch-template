@@ -29,6 +29,7 @@ case object Development extends FinchTemplateEnvironment {
   override val name = "development"
   override val isDevelopment = true
   override val isTest = false
+  override val isStaging = false
   override val isProduction = false
 
   //override val starWarsApiBaseUrl = "http://localhost:5000"
@@ -39,6 +40,7 @@ case object Test extends FinchTemplateEnvironment {
   override val name = "test"
   override val isDevelopment = false
   override val isTest = true
+  override val isStaging = false
   override val isProduction = false
 
   override val starWarsApiBaseUrl = "http://swapi.co"
@@ -48,6 +50,7 @@ case object Production extends FinchTemplateEnvironment {
   override val name = "production"
   override val isDevelopment = false
   override val isTest = false
+  override val isStaging = false
   override val isProduction = true
 
   override val starWarsApiBaseUrl = "http://swapi.co"

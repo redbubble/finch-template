@@ -1,6 +1,6 @@
 package com.redbubble.perf.queries
 
-import com.redbubble.finchtemplate.services.people.PersonId
+import com.redbubble.finchtemplate.model.people.PersonId
 
 trait PeopleQueries {
   val allPeopleQuery: String =

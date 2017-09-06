@@ -1,10 +1,9 @@
 package com.redbubble.finchtemplate.api.v1.people
 
 import com.redbubble.finchtemplate.model.Person
-import com.redbubble.finchtemplate.util.spec.FinchTemplateGenerators
+import com.redbubble.finchtemplate.util.spec.{FinchTemplateGenerators, SpecHelper}
 import com.redbubble.util.http.ResponseOps.jsonBuf
 import com.redbubble.util.json.JsonPrinter._
-import com.redbubble.util.spec.SpecHelper
 import io.circe.syntax._
 import org.scalacheck.Prop._
 import org.scalacheck.Properties

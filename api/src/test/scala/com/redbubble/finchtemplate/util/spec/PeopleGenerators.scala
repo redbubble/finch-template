@@ -2,7 +2,6 @@ package com.redbubble.finchtemplate.util.spec
 
 import com.redbubble.finchtemplate.model.Person
 import com.redbubble.finchtemplate.model.people.{BirthYear, HairColour, Name}
-import com.redbubble.util.spec.gen.GenHelpers
 import org.scalacheck.Gen
 
 trait PeopleGenerators extends GenHelpers {

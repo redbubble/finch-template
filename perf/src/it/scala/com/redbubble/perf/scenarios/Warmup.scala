@@ -1,6 +1,6 @@
 package com.redbubble.perf.scenarios
 
-import com.redbubble.finchtemplate.services.people.PersonId
+import com.redbubble.finchtemplate.model.people.PersonId
 import com.redbubble.perf.common.BaseSettings._
 import com.redbubble.perf.operations.PeopleOperations
 import io.gatling.core.Predef._

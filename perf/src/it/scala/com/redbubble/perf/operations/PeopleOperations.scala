@@ -1,6 +1,6 @@
 package com.redbubble.perf.operations
 
-import com.redbubble.finchtemplate.services.people.PersonId
+import com.redbubble.finchtemplate.model.people.PersonId
 import com.redbubble.perf.common.Graphql._
 import com.redbubble.perf.queries.PeopleQueries._
 import io.gatling.core.Predef._

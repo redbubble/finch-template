@@ -12,7 +12,7 @@
     <logger name="access" level="OFF"/>
     <logger name="error" level="ERROR"/>
     <logger name="rb-util" level="OFF"/>
-    <logger name="rb-util-test" level="INFO"/>
+    <logger name="finch-template-test" level="INFO"/>
     <logger name="finch-template" level="ERROR"/>
     <!-- Set this to TRACE to see HTTP traffic to downstream services -->
     <logger name="finch-template.http" level="ERROR"/>

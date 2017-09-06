@@ -1,6 +1,6 @@
 package com.redbubble.finchtemplate.util.config
 
-import com.redbubble.util.spec.SpecHelper
+import com.redbubble.finchtemplate.util.spec.SpecHelper
 import org.specs2.mutable.Specification
 
 final class EnvironmentSpec extends Specification with SpecHelper {
