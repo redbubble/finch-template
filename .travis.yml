@@ -2,7 +2,7 @@ language: scala
 os:
   - linux
 script:
-  - sbt test
+  - sbt ci
 matrix:
   include:
   - env: SBT_VERSION="1.0.1" PORT="8080" ENV="development" COOKIE_DOMAIN="finch-template.redbubble.com"
